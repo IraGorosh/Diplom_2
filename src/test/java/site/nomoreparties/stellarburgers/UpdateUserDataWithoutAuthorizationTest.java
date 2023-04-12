@@ -1,13 +1,8 @@
 package site.nomoreparties.stellarburgers;
 
 import io.qameta.allure.junit4.DisplayName;
-import io.qameta.allure.restassured.AllureRestAssured;
-import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -42,15 +37,6 @@ public class UpdateUserDataWithoutAuthorizationTest {
                 {null, UserGenerator.getRandomString(), null},
                 {null, null, UserGenerator.getRandomString()},
         };
-    }
-
-    @BeforeClass
-    public static void globalSetUp() {
-        RestAssured.filters(
-                new RequestLoggingFilter(),
-                new ResponseLoggingFilter(),
-                new AllureRestAssured()
-        );
     }
 
     @Before

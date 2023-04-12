@@ -1,12 +1,7 @@
 package site.nomoreparties.stellarburgers;
 
 import io.qameta.allure.junit4.DisplayName;
-import io.qameta.allure.restassured.AllureRestAssured;
-import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import site.nomoreparties.stellarburgers.client.UserClient;
 import site.nomoreparties.stellarburgers.model.*;
@@ -21,15 +16,6 @@ import static site.nomoreparties.stellarburgers.steps.UserRegistrationSteps.*;
 public class UserRegistrationTest {
     private UserClient userClient;
     private String accessToken;
-
-    @BeforeClass
-    public static void globalSetUp() {
-        RestAssured.filters(
-                new RequestLoggingFilter(),
-                new ResponseLoggingFilter(),
-                new AllureRestAssured()
-        );
-    }
 
     @Before
     public void setUp() {
